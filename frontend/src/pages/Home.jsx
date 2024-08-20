@@ -31,6 +31,8 @@ const Home = () => {
   const [isFavoriteFilter, setIsFavoriteFilter] = useState(false);
   const [statusFilter, setStatusFilter] = useState('All');
 
+  const [loading, setLoading] = useState(true);
+
   const navigate = useNavigate();
 
   const handleEdit = (noteDetails) => {
@@ -69,6 +71,7 @@ const Home = () => {
 
   // Get All Notes
   const getAllNotes = async () => {
+    setLoading(true);
     try {
       const response = await axiosInstance.get("/get-all-notes");
       if (response.data && response.data.notes) {
@@ -76,6 +79,8 @@ const Home = () => {
       }
     } catch (error) {
         console.log("An unexpected error occured. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -187,7 +192,10 @@ const Home = () => {
       />
 
       <div className='container mx-auto mt-5'>
-        {allNotes.length > 0 ? (<div className='flex flex-wrap gap-2 justify-center'>
+        {loading ? (<div className='flex justify-center items-center h-full'>
+            <p>Loading...</p>
+          </div>
+        ) : allNotes.length > 0 ? (<div className='flex flex-wrap gap-2 justify-center'>
           {allNotes.map((item) => (
             <div key={item._id} className='flex p-2'>
               <NoteCard
