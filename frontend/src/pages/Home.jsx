@@ -32,6 +32,7 @@ const Home = () => {
   const [statusFilter, setStatusFilter] = useState('All');
 
   const [loading, setLoading] = useState(true);
+  const [firstLoad, setFirstLoad] = useState(true);
 
   const navigate = useNavigate();
 
@@ -71,7 +72,6 @@ const Home = () => {
 
   // Get All Notes
   const getAllNotes = async () => {
-    setLoading(true);
     try {
       const response = await axiosInstance.get("/get-all-notes");
       if (response.data && response.data.notes) {
@@ -80,7 +80,10 @@ const Home = () => {
     } catch (error) {
         console.log("An unexpected error occured. Please try again.");
     } finally {
-      setLoading(false);
+      if (firstLoad) {
+        setLoading(false);
+        setFirstLoad(false);
+      }    
     }
   };
 
@@ -121,6 +124,11 @@ const Home = () => {
       }
     } catch (error) {
       console.log("An unexpected error occurred. Please try again.");
+    } finally {
+      if (firstLoad) {
+        setLoading(false);
+        setFirstLoad(false);
+      }    
     }
   };
 
@@ -163,6 +171,7 @@ const Home = () => {
     setIsFavoriteFilter(isFavFilter);
   };
 
+  // Update notes when filters or search changes
   useEffect(() => {
     getUserInfo();
     getFilteredNotes(); 
@@ -192,10 +201,12 @@ const Home = () => {
       />
 
       <div className='container mx-auto mt-5'>
-        {loading ? (<div className='flex justify-center items-center h-full'>
+        {loading ? (
+          <div className='flex justify-center items-center h-full'>
             <p>Loading...</p>
           </div>
-        ) : allNotes.length > 0 ? (<div className='flex flex-wrap gap-2 justify-center'>
+        ) : allNotes.length > 0 ? (
+        <div className='flex flex-wrap gap-2 justify-center'>
           {allNotes.map((item) => (
             <div key={item._id} className='flex p-2'>
               <NoteCard
@@ -215,8 +226,16 @@ const Home = () => {
         </div>
         ) : (
           <EmptyCard
-            imgSrc={searchQuery ? NoDataImg : AddNotesImg}
-            message={searchQuery ? `Oops! No notes found matching your search.` : `Add your top picks now!`}
+            imgSrc={
+              searchQuery || isFavoriteFilter || statusFilter !== 'All' 
+                ? NoDataImg 
+                : AddNotesImg
+            }
+            message={
+              searchQuery || isFavoriteFilter || statusFilter !== 'All' 
+                ? `Oops! No notes found matching your search or filters.` 
+                : `Add your top picks now!`
+            }
           />
         )}
       </div>
