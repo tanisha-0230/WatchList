@@ -258,7 +258,7 @@ const Home = () => {
           },
         }}
         contentLabel="Add/Edit Notes"
-        className='w-[85%] lg:w-[50%] max-h-[75vh] overflow-auto z-auto bg-white rounded-md mx-auto my-16 p-5'
+        className='w-[90%] lg:w-[50%] max-h-[75vh] overflow-auto z-auto bg-white rounded-md mx-auto my-16 p-5'
       >
         <AddEditNotes 
           type={openAddEditModal.type}
