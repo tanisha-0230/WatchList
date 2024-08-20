@@ -206,7 +206,7 @@ const Home = () => {
             <p>Loading...</p>
           </div>
         ) : allNotes.length > 0 ? (
-        <div className='flex flex-wrap gap-2 md:gap-4 justify-center'>
+        <div className='flex flex-wrap gap-2 lg:gap-4 justify-center'>
           {allNotes.map((item) => (
             <div key={item._id} className='flex p-2'>
               <NoteCard
