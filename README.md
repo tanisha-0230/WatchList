@@ -12,3 +12,5 @@
 - **Media Tracking**: Keep track of your movie and TV show consumption with a streamlined, organized approach.
 
 Enjoy a seamless experience managing your media collection with **WatchList**!
+
+![Untitled design (2)](https://github.com/user-attachments/assets/724ef8e2-89c7-4bcd-87c8-d5695d58f150)
