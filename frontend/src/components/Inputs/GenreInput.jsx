@@ -44,7 +44,7 @@ const GenreInput = ({ genres, setGenres }) => {
         <input
           type="text"
           value={inputValue}
-          className='text-sm bg-transparent border px-2 py-2 rounded outline-none w-1/4'
+          className='text-sm bg-transparent border px-2 py-2 rounded outline-none w-1/3'
           placeholder='Add Genres'
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
