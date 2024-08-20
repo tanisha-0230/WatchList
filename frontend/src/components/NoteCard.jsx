@@ -24,7 +24,7 @@ const NoteCard = ({title, date, genre, tag, isFavorite, rating, status, onEdit, 
             <h6 className='text-base font-medium'>{title}</h6>
         </div>
         <MdFavorite 
-          className={`text-2xl ${isFavorite ? 'text-red-500' : 'text-slate-300'} hover:border-2 hover:border-red-500 rounded-full p-[0.05rem] cursor-pointer`} 
+          className={`text-2xl ${isFavorite ? 'text-red-500' : 'text-slate-300'} lg:hover:border-2 hover:border-red-500 rounded-full p-[0.05rem] cursor-pointer`} 
           onClick={onFavorite}
         />      
         </div>
