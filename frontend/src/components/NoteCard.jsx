@@ -18,7 +18,7 @@ const NoteCard = ({title, date, genre, tag, isFavorite, rating, status, onEdit, 
   }
 
   return (
-    <div className='w-[300px] lg:w-[350px] flex flex-col justify-between h-full border rounded p-4 bg-white transition-all ease-in-out lg:hover:shadow-xl'>
+    <div className='w-[300px] lg:w-[350px] flex flex-col justify-between h-full border rounded p-4 bg-white lg:transition-all lg:ease-in-out lg:hover:shadow-xl'>
       <div className='flex items-center justify-between'>
         <div>
             <h6 className='text-base font-medium'>{title}</h6>
