@@ -1,10 +1,7 @@
 # 🎬 WatchList
 ## A MERN App for Managing Your Movie and TV Show Collection
 
-**WatchList** is a full-stack application tailored to help users effortlessly manage notes related to movies, TV shows, and other media. With **WatchList**, you can:
-
-- **Create, edit, and delete** notes with ease.
-- **Filter** notes based on favorite status and viewing status.
+**WatchList** is a full-stack MERN application designed to help users effortlessly manage notes for movies, TV shows, and other media. It features secure user authentication, allowing users to create, edit, and delete notes, as well as mark favorites for quick access. With advanced search and filtering options, users can easily find notes based on their favorite and viewing statuses. The responsive design ensures a seamless experience on both desktop and mobile devices, making WatchList the perfect tool for organizing your media collection.
 
 ---
 
