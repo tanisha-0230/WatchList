@@ -1,9 +1,15 @@
 require("dotenv").config();
 
-const config = require("./config.json");
 const mongoose = require("mongoose");
 
-mongoose.connect(config.connectionString);
+const connectionString = process.env.MONGO_URI;
+
+mongoose.connect(connectionString, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log('MongoDB connected successfully'))
+  .catch((error) => console.error('MongoDB connection error:', error));
 
 const User = require("./models/user.model");
 const Note = require("./models/note.model");
