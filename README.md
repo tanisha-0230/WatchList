@@ -78,3 +78,6 @@ To run this project locally, follow these steps:
 ---
 
 ![Untitled design (2)](https://github.com/user-attachments/assets/724ef8e2-89c7-4bcd-87c8-d5695d58f150)
+
+💙 If you like this project, please ⭐ it and share it with your friends!
+
