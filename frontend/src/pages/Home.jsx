@@ -236,6 +236,11 @@ const Home = () => {
                 ? `Oops! No notes found matching your search or filters.` 
                 : `Add your top picks now!`
             }
+            onClick={
+              searchQuery || isFavoriteFilter || statusFilter !== 'All'
+                ? undefined
+                : () => setOpenAddEditModal({ isShown: true, type: 'add', data: null })
+            }
           />
         )}
       </div>
